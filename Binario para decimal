@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void main(){
+
+    int digito=0;
+    int pot=0;
+    int backup=0;
+    float trabalha=0;
+    int resultado=0;
+    int inteiro;
+
+    printf("Digite um numero: ");
+    scanf("%i",&digito);
+    backup=digito;
+ if(digito==0){
+
+     printf("0 em binario quando convertido para qualquer base decimal, sempre retorna 0\n");
+
+ }
+ 
+ else{
+ while(digito!=0){
+
+
+     trabalha=digito;
+     trabalha=trabalha/10;
+     digito=trabalha;
+     trabalha=(trabalha-digito)*10;
+     inteiro=round(trabalha);
+
+     if(inteiro==1){
+
+         resultado=resultado+pow(2,pot);
+     }
+    pot++;
+
+}
+printf("\n\n");
+printf("O numero %i quando convertido para decimal retorna o valor %i",backup,resultado);
+ 
+}
+
+}
