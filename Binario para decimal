@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 
-void main(){
+void Btodec(){
 
     int digito=0;
     int pot=0;
