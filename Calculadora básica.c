@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define PI  3.14159265358979323846
 
 void Soma();
@@ -11,7 +11,9 @@ void Divisao();
 void Potencia();
 void Radiciacao();
 void Trigonometria();
+void Conversores();
 void Convert();
+void BintoDec();
 
 void main(){
 	
@@ -28,7 +30,7 @@ do{
 	printf("5-POTENCIACAO\n");
 	printf("6-RADICIACAO\n");
 	printf("7-VALORES DE ANGULOS TRIGONOMETRICOS\n");
-	printf("8-CONVERSOR BINARIO\n");
+	printf("8-CONVERSORES DE BASES\n");
 	printf("9-DESLIGAR\n");
 	printf("#########################################\n");
 	printf("Comando: ");scanf("%i",&comando);
@@ -64,7 +66,7 @@ switch(comando){
 	break;
 	
 	case 8:
-	Convert();
+	Conversores();
 	break;
 	
 	case 9:
@@ -278,13 +280,55 @@ switch(escolha){
 	system("cls");	
 }
 
+//FUNÇAO QUE INVOCA OUTRAS FUNÇOES
+//CONVERSORAS DE BASES
+void Conversores(){
+	
+	int escolha=1;
+	
+	
+	do{
+	system("pause");
+	system("cls");
+	printf("#########################################\n");
+	printf("CONVERSORES DE BASES\n");
+	printf("#########################################\n");
+	printf("1- DECIMAL------>BINARIO\n");
+	printf("2- BINARIO------>DECIMAL\n");
+	printf("3- VOLTAR PARA A PRINCIPAL\n");
+	printf("#########################################\n");
+	printf("COMANDO:");scanf("%i",&escolha);
+	
+	switch(escolha){
+		
+		case 1:
+		Convert();
+		break;
+		
+		case 2:
+		BintoDec();
+		break;
+		
+		case 3:
+		printf("ENCERRANDO CONVERSORES DE BASE...\n");
+		system("pause");
+		system("cls");
+		
+	}
+	
+	
+}while(escolha!=3);
+	
+	
+}
+
 //CONVERSOR DE DECIMAL PARA BINARIO
 void Convert(){
 	
 	int numero=0;
 	int sacrificio=0;
 	int p=0;
-	printf("Por favor, digite o numero em decimal para ser convertido: ");
+	printf("\nPor favor, digite o numero em decimal para ser convertido: ");
 	scanf("%i",&numero);
 	sacrificio=numero;
 	
@@ -311,10 +355,50 @@ while(p!=0){
 	p=p-1;
 	
 }
-    printf("\n\n");
-    system("pause");
-	system("cls");	
+    printf("\n\n");	
 
 }
 
+//CONVERSOR DE BINÁRIO PARA DECIMAL
+void BintoDec(){
 
+    long int digito=0;
+    int pot=0;
+    long int backup=0;
+    double trabalha=0;
+    long int resultado=0;
+    long int inteiro;
+    
+    printf("Digite um numero em binario para ser convertido para a base decimal: ");
+    scanf("%ld",&digito);
+    printf("%ld",digito);
+    backup=digito;
+ if(digito==0){
+ 	
+ 	printf("0 em binario quando convertido para qualquer base decimal, sempre retorna 0\n");
+ 	
+ }
+ 
+ else{
+ while(digito!=0){
+ 	
+ 	
+ 	trabalha=digito;
+ 	trabalha=trabalha/10;
+ 	digito=trabalha;
+ 	trabalha=(trabalha-digito)*10;
+ 	inteiro=round(trabalha);
+ 	
+ 	if(inteiro==1){
+ 		
+ 		resultado=resultado+pow(2,pot);
+ 	}
+	pot++;
+	
+}
+printf("\n\n");
+printf("O numero %ld quando convertido para decimal retorna o valor %i",backup,resultado);
+ 
+}
+ printf("\n\n");   
+}
