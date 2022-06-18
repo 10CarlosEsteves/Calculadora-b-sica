@@ -6,37 +6,39 @@ void main(){
     long int digito=0;
     int pot=0;
     long int backup=0;
-    double trabalha=0;
     long int resultado=0;
     long int inteiro;
     
-    printf("Digite um numero: ");
+    printf("Digite um numero binario: ");
     scanf("%ld",&digito);
-    printf("%ld",digito);
+    
     backup=digito;
+    
+    
+    
  if(digito==0){
  	
  	printf("0 em binario quando convertido para qualquer base decimal, sempre retorna 0\n");
- 	
- }
+	
+	}
  
  else{
+ 	
  while(digito!=0){
  	
- 	
- 	trabalha=digito;
- 	trabalha=trabalha/10;
- 	digito=trabalha;
- 	trabalha=(trabalha-digito)*10;
- 	inteiro=round(trabalha);
+ 	inteiro=digito%10;
  	
  	if(inteiro==1){
  		
  		resultado=resultado+pow(2,pot);
- 	}
+ 		
+ 	    }
+ 	
 	pot++;
+	digito=digito/10;
 	
 }
+
 printf("\n\n");
 printf("O numero %ld quando convertido para decimal retorna o valor %i",backup,resultado);
  
